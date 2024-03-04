@@ -14,6 +14,7 @@ namespace Tanks
 
             foreach (var (transform, entity) in SystemAPI.Query<RefRW<LocalTransform>>()
                          .WithAll<Tank>()
+                         .WithNone<PlayerComponent>()
                          .WithEntityAccess())
             {
                 var position = transform.ValueRO.Position;

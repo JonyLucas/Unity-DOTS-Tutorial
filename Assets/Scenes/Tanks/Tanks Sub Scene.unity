@@ -148,10 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8025edb2477447c8a19c8c2506c40b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TankPrefab: {fileID: 7329761329304447629, guid: 2b8098e5ed682ec4abe02dc589f40bbc,
+  tankPrefab: {fileID: 7329761329304447629, guid: 2b8098e5ed682ec4abe02dc589f40bbc,
     type: 3}
-  CannonBallPrefab: {fileID: 0}
-  TankCount: 10
+  cannonBallPrefab: {fileID: 0}
+  tankCount: 10
 --- !u!4 &1502733037
 Transform:
   m_ObjectHideFlags: 0
