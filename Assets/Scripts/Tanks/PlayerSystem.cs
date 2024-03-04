@@ -9,6 +9,11 @@ namespace Tanks
     public partial struct PlayerSystem : ISystem
     {
         [BurstCompile]
+        public void OnCreate(ref SystemState state)
+        {
+            state.RequireForUpdate<PlayerComponent>();
+        }
+        
         public void OnUpdate(ref SystemState state)
         {
             var movement = new float3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -19,6 +24,15 @@ namespace Tanks
             {
                 transform.ValueRW.Position += movement * 5;
                 transform.ValueRW.Rotation = quaternion.LookRotation(movement, math.up());
+                
+                // Move the camera with the player
+                var cameraTransform = Camera.main.transform;
+                Vector3 position = transform.ValueRO.Position;
+                position -= 10.0f * (Vector3)transform.ValueRO.Forward();
+                position.y += 5.0f;
+                cameraTransform.position = position;
+                cameraTransform.LookAt(transform.ValueRO.Position);
+                
             }
         }
     }

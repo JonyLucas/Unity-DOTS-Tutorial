@@ -31,6 +31,11 @@ namespace Tanks
                 var color = new URPMaterialPropertyBaseColor { Value = RandomColor(ref random) };
                 var position = random.NextFloat3(new float3(10, 10, 10));
                 
+                if (i == 0)
+                {
+                    state.EntityManager.AddComponent<PlayerComponent>(tankEntity);
+                }
+                
                 // Every root entity instantiated from a prefab has a LinkedEntityGroup component, which
                 // is a list of all the entities that make up the prefab hierarchy (including the root).
                 // (LinkedEntityGroup is a special kind of component called a "DynamicBuffer", which is
@@ -51,11 +56,6 @@ namespace Tanks
                     Rotation = quaternion.identity,
                     Scale = 1
                 });
-
-                if (i == 0)
-                {
-                    state.EntityManager.AddComponent<PlayerComponent>(tankEntity);
-                }
             }
             
         }
