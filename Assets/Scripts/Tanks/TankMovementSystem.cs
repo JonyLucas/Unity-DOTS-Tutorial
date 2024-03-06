@@ -27,6 +27,13 @@ namespace Tanks
                 transform.ValueRW.Position += direction * deltaTime * 5;
                 transform.ValueRW.Rotation = quaternion.RotateY(angle);
             }
+
+            var spin = quaternion.RotateY(deltaTime * math.PI);
+            foreach (var tank in SystemAPI.Query<RefRW<Tank>>())
+            {
+                var turretTransform = SystemAPI.GetComponentRW<LocalTransform>(tank.ValueRO.Turret);
+                turretTransform.ValueRW.Rotation = math.mul(spin, turretTransform.ValueRO.Rotation);
+            }
         }
     }
 }
