@@ -150,7 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankPrefab: {fileID: 7329761329304447629, guid: 2b8098e5ed682ec4abe02dc589f40bbc,
     type: 3}
-  cannonBallPrefab: {fileID: 0}
+  cannonBallPrefab: {fileID: 7748993978892784624, guid: 4e76c9a0653bb6b46b85612747bc0e51,
+    type: 3}
   tankCount: 10
 --- !u!4 &1502733037
 Transform:

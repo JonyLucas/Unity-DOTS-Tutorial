@@ -14,7 +14,7 @@ public class TankAuthoring : MonoBehaviour
             AddComponent(entity, new Tank
             {
                 Turret = GetEntity(authoring.turret, TransformUsageFlags.Dynamic),
-                CannonBall = GetEntity(authoring.cannonBall, TransformUsageFlags.Dynamic)
+                Cannon = GetEntity(authoring.cannonBall, TransformUsageFlags.Dynamic)
             });
         }
     }
@@ -23,5 +23,5 @@ public class TankAuthoring : MonoBehaviour
 public struct Tank : IComponentData
 {
     public Entity Turret;
-    public Entity CannonBall;
+    public Entity Cannon;
 }
